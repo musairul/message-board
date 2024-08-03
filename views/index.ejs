@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Home</title>
+  </head>
+  <body>
+    <h1><%=title%></h1>
+    <nav class="navbar">
+      <a href="/">home</a>
+      <a href="/new">new message</a>
+    </nav>
+    <div class="messageContainer">
+      <% messages.forEach((message, index)=>{%>
+      <div class="message">
+        <%= message.text %>
+        <br />
+        <div class="messageInfo">
+          <strong>- <%= message.user %></strong>
+          <em>(<%= message.added.toLocaleString() %>)</em>
+        </div>
+        <a class="details" href="messages/<%=index%>"><button>Open</button></a>
+      </div>
+      <% }) %>
+    </div>
+  </body>
+</html>
