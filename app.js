@@ -32,25 +32,6 @@ app.use((req, res) => {
   res.status(404).render("404");
 });
 
-// Define routes
-app.get("/", (req, res) => {
-  res.render("index", { title: "Mini Messageboard", messages: messages });
-});
-
-app.get("/new", (req, res) => {
-  res.render("form");
-});
-
-app.post("/new", (req, res) => {
-  const { messageText, messageUser } = req.body;
-  messages.push({
-    text: messageText,
-    user: messageUser,
-    added: new Date(),
-  });
-  res.redirect("/");
-});
-
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
